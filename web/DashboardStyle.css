@@ -1,0 +1,202 @@
+@import url(https://fonts.googleapis.com/css?family=Comfortaa);
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Comfortaa;
+  border: none;
+}
+
+body{
+  background-color: #343A40;
+  margin: 0;
+}
+
+.wraper {
+  display: flex;
+  align-items: stretch;
+}
+
+.brand {
+  color: #70E000;
+  display: flex;
+  align-items: flex-start;
+}
+
+.avatar {
+  margin-bottom: 10px;
+}
+
+.user-pic {
+  background: #FFFFFF;
+  border-radius: 75px;
+  width: 80px;
+  height: 80px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.user-name {
+  margin-top: 10px;
+  color: #FFFFFF;  
+  font-weight: bold;
+}
+
+.user-account {
+  color: #8B8C89;
+  font-size: 12px;  
+}
+
+.user-options {
+  margin-top: 10px;
+}
+
+.sidebar {
+  display: grid;
+  overflow: auto;
+  text-align: center;
+  justify-content: center;
+  margin: 0;
+  padding: 30px 10px;
+  width: 20%;
+  border-right: 3px solid #70E000;
+  background-color: #252422;
+}
+
+.sidebar a {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  color: #8B8C89;
+  font-size: 14px;
+  text-decoration: none;
+}
+ 
+.sidebar a.active {
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  color: white;
+}
+
+.icon-sidebar {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.section-sidebar {
+  margin-top: 20px;
+  color: #FFFFFF;
+  font-size: 14px;
+  text-align: left;
+}
+
+.topbar-page {
+  height: 60px;
+  width: 100%;
+  /* Preto faded */
+  background: #252422;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.title-page {
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  padding: 15px 0 0 15px;
+}
+
+div.content {
+  width: 80%;
+  float: left;
+  height: 800px;
+}
+
+.section-content {
+  display: flex;
+  padding: 20px 80px;
+}
+
+.saldo {
+  background: #FFFFFF;
+  border-radius: 5px;
+  padding: 44px 50px;
+  margin: auto 0;
+}
+
+.saldo-title {
+  margin-bottom: 18px;
+}
+
+.saldo-content {
+  font-size: 64px;
+  font-weight: bold;
+  color: #8B8C89;
+}
+
+.report {
+  background: #FFFFFF;
+  border-radius: 5px;
+  width: 100%;
+  padding: 44px 40px;
+}
+
+.items-report {
+  margin-top: 40px;
+}
+
+.report-content {
+  font-size: 14px;
+  font-weight: bold;
+  color: #8B8C89;
+  justify-content: flex-start;
+}
+
+.report-value-green {
+  justify-content: flex-end;
+}
+
+.report-value-red {
+  justify-content: flex-end;
+}
+
+
+
+@media screen and (max-width: 700px) {
+  .wraper {
+    display: block;
+  }
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-right: none;
+    border-bottom: 3px solid #70E000;
+  }
+  .sidebar a {float: left;}
+  div.content {
+    width: 100%;
+    justify-content: center;
+   }
+  .section-content {
+    display: block;
+  }
+  .saldo {
+    margin-top: 30px;
+    width: 100%;
+    padding: 44px 20px;
+  }
+  .saldo-content {
+    font-size: 34px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
