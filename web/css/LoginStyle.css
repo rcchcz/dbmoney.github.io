@@ -60,7 +60,7 @@ h3{
     display: flex;
     margin-left: auto;
     margin-right: auto;
-    padding: 20px 30px;
+    padding: 5px 30px;
     margin-top: 5vh;
     margin-bottom: 5vh;
     border-radius: 20px;
@@ -101,7 +101,21 @@ input[type="submit"] {
     cursor: pointer;
 }
 
-#cadatrar-btn {
+#cadastrar-btn {
+    width: 30%;
+    margin-left: 35%;
+}
+
+input[type="submit"]:hover {
+    text-align: center;
+    color: white;
+    background-color: #38b000;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#cadastrar-btn:hover {
+    background-color: #38b000;
     width: 30%;
     margin-left: 35%;
 }
