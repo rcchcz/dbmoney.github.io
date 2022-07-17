@@ -9,39 +9,35 @@
 </head>
 <body>
     <div class="wrapper">
-        <h3>Bem-vindo!</h3>
-        <form action="Dashboard.html">
+        
+        <form id="form-cadasdtro" action="index.html">
+            <div class="row"><h3>DBMoney</h3></div>
             <div class="row">
                 <div class="column">
-                    <div class="row"><input type="text" name="cpf" placeholder="CPF" required></div>
-                    <div class="row"><input type="text" name="cpf" placeholder="CPF" required></div>
-                    <div class="row"><input type="text" name="cpf" placeholder="CPF" required></div>
-                    <div class="row"><input type="text" name="cpf" placeholder="CPF" required></div>
-                    <div class="row"><input type="text" name="cpf" placeholder="CPF" required></div>
-                    <div class="row"><input type="text" name="cpf" placeholder="CPF" required></div>
+                    <div class="row"><input type="text" name="nome" placeholder="Nome*" required></div>
+                    <div class="row"><input type="text" name="cpf" placeholder="CPF*" required></div>
+                    <div class="row"><input type="text" name="tel" placeholder="Telefone*" required></div>
+                    <div class="row"><input type="text" name="email" placeholder="Email"></div>
                 </div>
-                
                 <div class="column">
-                    <div class="row"><input type="text" name="cpf" placeholder="CPF" required></div>
-                    <div class="row"><input type="text" name="cpf" placeholder="CPF" required></div>
-                    <div class="row"><input type="text" name="cpf" placeholder="CPF" required></div>
-                    <div class="row"><input type="text" name="cpf" placeholder="CPF" required></div>
-                    <div class="row"><input type="text" name="cpf" placeholder="CPF" required></div>
-                    <div class="row"><input type="text" name="cpf" placeholder="CPF" required></div>
+                    <div class="row"><input type="text" name="dtnasc" placeholder="Data de nascimento*"
+                        onfocus="(this.type='date')" onblur="(this.type='text')"required></div>
+                    <div class="row"><input type="text" name="end" placeholder="Endereço*" required></div>
+                    <div class="row"><input type="password" name="password" placeholder="Senha*" required></div>
+                    <div class="row"><input type="password" name="password" placeholder="Confirmar senha*" required></div>
                 </div>  
             </div>
             
             <div class="row">
-                <div class="remember-acess">
-                    <input type="checkbox" id="remember-acess" name="remember-acess" >
-                    <label for="remember-acess" id="remember-acess-lb">Salvar credenciais</label>
+                <div class="column">
+                    <input type="checkbox" id="remember-acess" name="remember-acess" required>
+                    <label for="remember-acess" id="remember-acess-lb">Li e concordo com os termos de uso.</label>       
+                    <input type="submit" id="cadatrar-btn" value="Cadastrar">
                 </div>
-                <input type="submit" value="Acessar">
-                <a href="#" id="register">Ainda não possui uma conta? Registre-se.</a>
             </div>
         </form>
     </div>    
-    <label for="version" id="version">Versão 1.0</label>
+    
     
         
 </body>
