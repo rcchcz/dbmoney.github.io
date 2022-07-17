@@ -2,6 +2,7 @@ const UserService = require('../../services/userService')
 
 class UserController {
     async create_user(request, response) {
+        const userReceived = request.body
         try {
             await UserService.insertUser(userReceived)
             response.status(200).json({
@@ -24,7 +25,7 @@ class UserController {
         }
     }
     async show_user(request, response) {
-        const { id } = request.params;
+        const { id } = request.params
         try {
             const user = await UserService.getUserById(id)
             return response.status(200).json(user)
@@ -94,4 +95,4 @@ class UserController {
     }
 }
 
-module.exports = new UserController()
+module.exports = new UserController() 

@@ -1,28 +1,42 @@
 const Bcrypt = require('../utils/bcrypt')
+const DbConnection = require('../database/connection')
 
 class UserService {
     async insertUser(userReceived) {
-        const passwordEncrypted = await Bcrypt.hashingPassword(userReceived.password)
-        const newUser = {
-            name: userReceived.name,
-            cpf: userReceived.cpf,
-            password: passwordEncrypted
+        try {
+            const database = await DbConnection()
+            const passwordEncrypted = await Bcrypt.hashingPassword(userReceived.senha)
+            const sql = 'INSERT INTO Cliente (cliente_nome, cliente_telefone, ' +
+                'cliente_cpf, cliente_endereco, cliente_data_nascimento, ' +
+                'cliente_senha, cliente_id_gerente) VALUES (?,?,?,?,?,?,?);'
+            const values = [userReceived.nome, userReceived.telefone, userReceived.cpf, 
+                userReceived.endereco, userReceived.data_nascimento, 
+                passwordEncrypted, 1]
+            console.log(values + ' ' + sql)
+            await database.query(sql, values)
+        } catch (err) {
+            return err
         }
-        console.log('Usuário inserido com sucesso!')
-        // web: montar json
-        // bd: inserir na tabela  
     }
     async getAllUsers() {
-        console.log('Usuários')
-        return 'Usuários'
-        // web: return <json>
-        // bd: return <resultado da consulta>
+        try {
+            const database = await DbConnection()
+            const [usuarios] = await database.query('SELECT * FROM Cliente;')
+            return usuarios
+        } catch (err) {
+            return err
+        }
     }
     async getUserById(id) {
-        console.log('Usuário')
-        return 'Usuário'
-        // web: return <json>
-        // bd: return <resultado da consulta>
+        try {
+            const database = await DbConnection()
+            const [usuarios] = await database.query('SELECT * FROM Cliente WHERE cliente_id=?;', id)
+            if (usuarios.length > 0) {
+                return usuarios[0]
+            }
+        } catch (err) {
+            return err
+        }
     }
     async updateUser(id, userReceived) {
         const userUpdated = {
