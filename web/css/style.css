@@ -199,10 +199,21 @@ div.content {
   }
 }
 
-.field-title {
+.single-field-title {
   color: #8B8C89;
   width: 300px;
   margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 5px;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.common-field-title {
+  color: #8B8C89;
+  width: 300px;
+  margin-top: 35px;
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 5px;
@@ -269,6 +280,7 @@ div.content {
 
 .options {
   width: 250px;
+  padding-top: 20px;
   margin-left: auto;
   margin-right: auto;
 }
