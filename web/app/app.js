@@ -15,7 +15,7 @@ function download_boleto() {
 
 function generate_boleto() {
     var code = "";
-    for(var i = 0; i < 20; i++) { code += i; }
+    for(var i = 0; i < 20; i++) { code += Math.floor(Math.random() * 9); }
     return code;
 }
   
