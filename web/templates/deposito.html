@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link rel="stylesheet" type="text/css" href="../css/LoginStyle.css">
+	<script src="../app/app.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
     <title>DBMoney</title>
 </head>
@@ -55,11 +56,11 @@
     	  <h3 class="title-page">Depósito</h3>
     	</div>
         <div class="field-title">Valor</div>
-		<div class="field-input"><input type="text" name="email" placeholder="Valor que deseja depositar" required></div>     
+		<div class="field-input"><input type="number" name="valor" placeholder="Valor que deseja depositar" required></div>     
   		 
 		<div class="options">
 			<button type="button" class="btn-auxiliar">Cancelar</button>
-			<button type="button" class="btn-padrao">Gerar boleto</button>
+			<button onclick="download_boleto()" type="button" class="btn-padrao">Gerar boleto</button>
 		</div>
 	</div>     
 </body>
