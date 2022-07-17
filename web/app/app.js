@@ -29,7 +29,7 @@ function generate_boleto() {
     return code;
 }
 
-function recarga() {
+function confirm_recarga() {
     alert("Recarga em processo!");
 }
   
