@@ -163,8 +163,6 @@ div.content {
   justify-content: flex-end;
 }
 
-
-
 @media screen and (max-width: 700px) {
   .wraper {
     display: block;
@@ -199,4 +197,78 @@ div.content {
     text-align: center;
     float: none;
   }
+}
+
+.field-title {
+  color: #8B8C89;
+  width: 300px;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 5px;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.field-input {
+  color: #8B8C89;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-padrao {
+  text-align: center;
+  color: white;
+  font-size: 20;
+  background-color: #70E000;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 120px;
+  height: 30px;
+}
+
+.btn-auxiliar {
+  text-align: center;
+  font-size: 20;
+  color: white;
+  background-color: #8B8C89;
+  margin-top: 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 120px;
+  height: 30px;
+}
+
+.btn-padrao:hover {
+  text-align: center;
+  color: white;
+  font-size: 20;
+  background-color: #38b000;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 120px;
+  height: 30px;
+}
+
+.btn-auxiliar:hover {
+  text-align: center;
+  font-size: 20;
+  color: white;
+  background-color: #abb3b4;
+  margin-top: 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 120px;
+  height: 30px;
+}
+
+.options {
+  width: 250px;
+  margin-left: auto;
+  margin-right: auto;
 }
