@@ -28,4 +28,8 @@ function generate_boleto() {
     for(var i = 0; i < 20; i++) { code += Math.floor(Math.random() * 9); }
     return code;
 }
+
+function confirm_recarga() {
+    alert("Recarga em processo!");
+}
   

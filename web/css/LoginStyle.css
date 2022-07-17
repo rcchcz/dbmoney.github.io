@@ -73,12 +73,12 @@ form{
     margin-bottom: 40px;
 }
 
-label, input{
+select, label, input{
     display: block;
     width: 100%;
 }
 
-input{
+select, input{
     border-radius: 5px;
     padding: 10px;
     /*margin-bottom: 25px;*/
