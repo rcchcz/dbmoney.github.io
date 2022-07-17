@@ -6,14 +6,13 @@ class UserService {
         try {
             const database = await DbConnection()
             const passwordEncrypted = await Bcrypt.hashingPassword(userReceived.senha)
-            const sql = 'INSERT INTO Cliente (cliente_nome, cliente_telefone, ' +
+            const insertQuery = 'INSERT INTO Cliente (cliente_nome, cliente_telefone, ' +
                 'cliente_cpf, cliente_endereco, cliente_data_nascimento, ' +
                 'cliente_senha, cliente_id_gerente) VALUES (?,?,?,?,?,?,?);'
             const values = [userReceived.nome, userReceived.telefone, userReceived.cpf, 
                 userReceived.endereco, userReceived.data_nascimento, 
                 passwordEncrypted, 1]
-            console.log(values + ' ' + sql)
-            await database.query(sql, values)
+            await database.query(insertQuery, values)
         } catch (err) {
             return err
         }
@@ -39,37 +38,44 @@ class UserService {
         }
     }
     async updateUser(id, userReceived) {
-        const userUpdated = {
-            ...userReceived
+        try {
+            await database.query()
+        } catch (err) {
+            return err
         }
-        console.log('Atualizado com sucesso!')
-        // web: atualizar json
-        // bd: atuaizar na tabela  
     }
     async changePassword(newPassword, id) {
         const passwordEncrypted = await Bcrypt.hashingPassword(newPassword)
-        // atualizar pela nova senha
-        console.log('Senha alterada com sucesso!')
+        try {
+            await database.query()
+        } catch (err) {
+            return err
+        }
     }
     async deleteUser(id) {
-        console.log('Apagado com sucesso!')
-        // web: apagar json
-        // bd: apagar na tabela  
-    }
-    async validateCredentials(cpf, password) {
-        // const userFound = <verficar a existência do cpf no json/tabela>
-        const userFound = [{cpf: '123.456.789-00'}]
-        var credentialsStatus = { status: false, err: 'Não validado...' }
-
-        if (userFound.length > 0) {
-            if (await Bcrypt.comparePassword(password, userFound.password))
-                credentialsStatus = { status: true, msg: 'Credenciais válidas!', id: userFound.id }
-        } else {
-            credentialsStatus = { status: false, err: 'Usuário e/ou senha incorretos!' }
+        try {
+            console.log(id)
+            await database.query('DELETE FROM Cliente WHERE cliente_id=?;', id)
+        } catch (err) {
+            return err
         }
-
-        console.log(credentialsStatus)
-        return credentialsStatus
+    }
+    async validateCredentials(cpf, senha) {
+        try {
+            const database = await DbConnection()
+            const [userFound] = await database.query('SELECT * FROM Cliente WHERE cliente_cpf=?;', cpf)
+            var credentialsStatus = { status: false, err: 'Não validado...' }
+            console.log(cpf)
+            if (userFound.length > 0) {
+                console.log(userFound[0])
+                if (await Bcrypt.comparePassword(senha, userFound[0].cliente_senha))
+                    return credentialsStatus = { status: true, msg: 'Credenciais válidas!', id: userFound.cliente_id }
+            } 
+            
+            return credentialsStatus = { status: false, err: 'Usuário e/ou senha incorretos!' }
+        } catch (err) {
+            return err
+        }
     }
 }
 

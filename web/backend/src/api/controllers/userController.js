@@ -78,8 +78,8 @@ class UserController {
         }
     }
     async login(request, response) {
-        const { email, password } = request.body
-        var credentialStatus = await UserService.validateCredentials(email, password)
+        const { cpf, senha } = request.body
+        var credentialStatus = await UserService.validateCredentials(cpf, senha)
 
         if (credentialStatus.status) {
             return response.status(200).json({
