@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
-	<link rel="stylesheet" type="text/css" href="../css/LoginStyle.css">
-	<script src="../app/app.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
     <title>DBMoney</title>
 </head>
@@ -24,7 +22,7 @@
 	  <img src="../icons/dashboard.png" alt="Dashboard icon" class="icon-sidebar">
 	  Dashboard
 	</a>
-	<a class="active" href="deposito.html">  	
+	<a href="deposito.html">  	
   	  <img src="../icons/deposito.png" alt="Deposito icon" class="icon-sidebar">
   	  Depósito
   	</a>
@@ -40,7 +38,7 @@
   	  <img src="../icons/recarga.png" alt="Recarga icon" class="icon-sidebar">
   	  Recarga
   	</a>
-  	<a href="transferencia.html">
+  	<a class="active" href="transferencia.html">
   	  <img 
   	    src="../icons/transferencia.png" alt="Transferencia icon" class="icon-sidebar">
   	  Transferência
@@ -53,15 +51,11 @@
 
     <div class="content">
     	<div class="topbar-page">
-    	  <h3 class="title-page">Depósito</h3>
+    	  <h3 class="title-page">Configurações da Conta</h3>
     	</div>
-        <div class="single-field-title">Valor</div>
-		<div class="field-input"><input type="number" min="0" name="valor" id="valor-boleto" placeholder="Valor que deseja depositar" required></div>     
-  		 
-		<div class="options">
-			<button type="button" class="btn-auxiliar">Cancelar</button>
-			<button onclick="validate_boleto()" type="button" class="btn-padrao">Gerar boleto</button>
-		</div>
-	</div>     
+        <div class="section-content">
+          
+    	</div> 
+  	</div>       
 </body>
 </html>
