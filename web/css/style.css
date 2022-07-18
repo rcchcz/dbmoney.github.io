@@ -426,3 +426,41 @@ div.content {
 .column {
   flex: 25%;
 }
+
+.report-title {
+  color: #000000;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.report-value {
+  color: #8B8C89;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.report-debito {
+  color: #000000;
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 30px;
+}
+
+.debitos {
+  color: #343A40;
+  font-size: 15px;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  text-align: left;
+  margin-top: 5px;
+  padding: 20px;
+}
+
+tr:nth-child(even) {
+  background-color: #e5e5e5;
+}
+
+.debito-valor {
+  color:#C23434;
+}
