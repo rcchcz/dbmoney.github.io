@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/LoginStyle.css">
+	<script src="../app/app.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
     <title>DBMoney</title>
 </head>
@@ -53,9 +55,35 @@
     	<div class="topbar-page">
     	  <h3 class="title-page">Extrato</h3>
     	</div>
-        <div class="section-content">
-          
-    	</div> 
+
+		<div class="row">
+			<div class="column common-field-title">Transações recentes</div>
+			<div class="column common-field-title">Período do extrato</div>
+		</div>
+
+		<div class="row">
+			<div class="column"></div>
+			<div class="column common-field-title" style="margin-top: -60px;">
+				<select class="filtro" name="filtrot">
+					<option value="t7">Últimos 7 dias</option>
+					<option value="t15">Últimos 15 dias</option>
+					<option value="t30">Últimos 30 dias</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="ext-item">
+			<div class="common-field-title ext-title">Título da operação <span class="ext-valent">R$ 300.76</span></div>
+			<div class="common-field-title ext-ben">Nome Sobrenome beneficiário</div>
+			<div class="common-field-title ext-date">DD/MM/AAAA HH:MM</div>
+		</div>
+
+		<div class="ext-item">
+			<div class="common-field-title ext-title">Título da operação <span class="ext-valsai">R$ 87.19</span></div>
+			<div class="common-field-title ext-ben">Nome Sobrenome beneficiário</div>
+			<div class="common-field-title ext-date">DD/MM/AAAA HH:MM</div>
+		</div>	
+	
   	</div>       
 </body>
 </html>
