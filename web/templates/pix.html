@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/LoginStyle.css">
+	<script src="../app/app.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
     <title>DBMoney</title>
 </head>
@@ -49,13 +51,29 @@
   	<a href="sac.html">Atendimento ao Cliente</a>
     </div>
 
-    <div class="content">
+	<div class="content">
     	<div class="topbar-page">
     	  <h3 class="title-page">Pix</h3>
     	</div>
-        <div class="section-content">
-          
-    	</div> 
-  	</div>       
+        
+		<form class="form-recarga" onsubmit="confirm_pix()">
+			<div class="common-field-title">Chave pix (apenas dígitos)</div>
+			<div class="field-input"><input type="text" name="cpix" placeholder="Insira a chave pix" required></div>
+			
+			<div class="common-field-title">Valor</div>
+			<div class="field-input"><input type="number" min="0" step=".01" name="vpix" placeholder="Insira o valor de transferência" required></div>     
+
+			<div class="common-field-title">Mensagem</div>
+			<textarea class="field-input comment" placeholder="Mensagem para o destinatário"></textarea>
+			
+			<div class="options">
+				<button type="button" class="btn-auxiliar">Cancelar</button>
+				<button type="submit" class="btn-padrao">Confirmar</button>
+			</div>
+		</form>
+    </div> 
+  
+</div> 
+</div>
 </body>
 </html>
