@@ -289,3 +289,9 @@ div.content {
   resize: none;
   height: 100px;
 }
+
+.filtro {
+  color: #8B8C89;
+  width: 300px;
+  border-radius: 5px;
+}
