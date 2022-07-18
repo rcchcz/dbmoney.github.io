@@ -182,7 +182,7 @@ div.content {
   .section-content {
     display: block;
   }
-  .saldo {
+  .saldo, .default-card, .black-card {
     margin-top: 30px;
     width: 100%;
     padding: 44px 20px;
@@ -387,4 +387,42 @@ div.content {
   margin-right: auto;
   margin-bottom: 20px;
   width: 500px;
+}
+
+.default-card {
+  border-radius: 10px;
+  border: solid 2px #FFFFFF;
+  padding: 44px 50px;
+  margin: auto 0;
+  background-color: #70E000; /* For browsers that do not support gradients */
+  background-image: linear-gradient(to right, #70E000 , #2c5206);
+}
+
+.black-card {
+  border-radius: 10px;
+  border: solid 2px #FFFFFF;
+  padding: 44px 50px;
+  margin: auto 0;
+  background-color: #000000; /* For browsers that do not support gradients */
+  background-image: linear-gradient(to right, #000000 , #4f4f4f);
+}
+
+.card-number {
+  margin-bottom: 18px;
+  color: white;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 200px;
+  color: white;
+  font-weight: 500;
+  font-size: 10px;
+}
+
+.column {
+  flex: 25%;
 }
