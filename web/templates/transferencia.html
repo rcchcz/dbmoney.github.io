@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/LoginStyle.css">
+	<script src="../app/app.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
     <title>DBMoney</title>
 </head>
@@ -53,9 +55,30 @@
     	<div class="topbar-page">
     	  <h3 class="title-page">Transferência</h3>
     	</div>
-        <div class="section-content">
-          
-    	</div> 
-  	</div>       
+        
+		
+		<form class="form-recarga" onsubmit="confirm_transf()">
+			<div class="common-field-title">Agência (apenas dígitos)</div>
+			<div class="text-input-field field-input"><input type="number" min="0" name="ag" placeholder="Insira a agência" required></div>
+
+			<div class="common-field-title">Conta (apenas dígitos)</div>
+			<div class="text-input-field field-input"><input type="number" min="0" name="cont" placeholder="Insira a conta" required></div>
+			
+			<div class="common-field-title">Tipo de conta</div>
+			<select class="field-input" name="valor" required>
+				<option value="cc">Conta corrente</option>
+				<option value="cp">Conta poupança</option>
+				<option value="cs">Conta salário</option>
+			</select>
+
+			<div class="common-field-title">Valor</div>
+			<div id="valor-transf" class="text-input-field field-input"><input type="number" min="0" step=".01" name="vtr" placeholder="Insira o valor de transferência" required></div>     
+
+			<div class="options">
+				<button type="button" class="btn-auxiliar" onclick="location.reload()">Cancelar</button>
+				<button type="submit" class="btn-padrao">Confirmar</button>
+			</div>
+		</form>
+	</div>      
 </body>
 </html>
