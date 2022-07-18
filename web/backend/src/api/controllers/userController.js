@@ -65,10 +65,11 @@ class UserController {
         }
     }
     async change_password(request, response) {
-        var newPassword = request.body.newPassword
+        const { id } = request.params
+        var newPassword = request.body.novaSenha
 
         try {
-            await UserService.changePassword(newPassword, isTokenValid.token.user_id, isTokenValid.token.token)
+            await UserService.changePassword(newPassword, id)
             response.status(200).json({ msg: 'Senha alterada!' })
 
         } catch (err) {
