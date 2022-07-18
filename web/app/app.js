@@ -32,4 +32,8 @@ function generate_boleto() {
 function confirm_recarga() {
     alert("Recarga em processo!");
 }
+
+function confirm_pix() {
+    alert("Pix enviado!");
+}
   
