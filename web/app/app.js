@@ -36,4 +36,12 @@ function confirm_recarga() {
 function confirm_pix() {
     alert("Pix enviado!");
 }
-  
+
+function confirm_transf() {
+    var val = document.getElementById("valor-transf").value
+    if(!isNaN(val) && parseInt(val, 10) > 0) { 
+        alert("Transferência em análise e processo de envio!");
+    } else {
+        alert("Valor deve ser numérico!");
+    }
+}  
