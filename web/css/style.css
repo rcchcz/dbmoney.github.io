@@ -330,3 +330,61 @@ div.content {
   color: #8B8C89;
   margin-top: 0px;
 }
+
+.highlight {
+  color: #70E000;
+}
+
+.highlight:hover {
+  cursor: pointer;
+}
+
+.sac-footer {
+  color: #8B8C89;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.sac-collapsible {
+  background-color: #FFFFFF;
+  color: #252422;
+  cursor: pointer;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  border-radius: 5px;
+  width: 500px;
+  height: 50px;
+  padding: 15px;
+  font-weight: 500;
+}
+
+.sac-collapsible:hover {
+  background-color: #70E000;
+}
+
+.sac-active, .collapsible:hover {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.sac-content {
+  padding: 15px;
+  display: none;
+  overflow: hidden;
+  background-color: #FFFFFF;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: #8B8C89;
+  width: 500px;
+}
+
+.sac-faq {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  width: 500px;
+}
