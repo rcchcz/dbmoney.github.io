@@ -34,7 +34,10 @@
                 sessionStorage.setItem('cliente_id', payload['cpf']);
                 document.location.href = 'dashboard.html';
             } else {
-                alert(request.responseXML['err']);
+                let message = "Usuário e/ou senha incorretos!";
+                if (message) {
+                    alert(message);
+                }
             }
         };
         let elements = form.elements;
