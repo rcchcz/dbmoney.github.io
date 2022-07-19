@@ -464,3 +464,23 @@ tr:nth-child(even) {
 .debito-valor {
   color:#C23434;
 }
+
+.config-title {
+  color: #FFFFFF;
+  font-size: 15px;
+  display: block;
+  width: 100%;
+  border-radius: 5px;
+  margin-left: 80px;
+  margin-top: 20px;
+}
+
+.config-field-input input {
+  margin-left: 80px;
+  padding: 0px;
+  width: 300px;
+  height: 35px;
+  border-radius: 5px;
+  margin-top: 5px;
+  padding-left: 5px;
+}
