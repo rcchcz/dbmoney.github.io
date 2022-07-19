@@ -35,7 +35,7 @@ class TitularController {
         }
     }
 
-    async update_Titular(request,responde){
+    async update_Titular(request,response){
         try {
             const { id } = request.params;
             const titularReceived = {

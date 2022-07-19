@@ -48,7 +48,7 @@ class UserService {
                 'cliente_senha=?, cliente_id_gerente=? WHERE cliente_id=?;';
             const values = [userReceived.nome, userReceived.telefone, userReceived.cpf, 
                 userReceived.endereco, userReceived.data_nascimento, 
-                userReceived.senha, 1, id];
+                userReceived.senha, 3, id];
             await database.query(updateQuery, values);
         } catch (error) {
             console.log(error);
