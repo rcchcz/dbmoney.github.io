@@ -2,6 +2,7 @@ const UserService = require('../../services/userService')
 
 class UserController {
     async create_user(request, response) {
+        const userReceived = request.body
         try {
             await UserService.insertUser(userReceived)
             response.status(200).json({
@@ -24,7 +25,7 @@ class UserController {
         }
     }
     async show_user(request, response) {
-        const { id } = request.params;
+        const { id } = request.params
         try {
             const user = await UserService.getUserById(id)
             return response.status(200).json(user)
@@ -77,8 +78,8 @@ class UserController {
         }
     }
     async login(request, response) {
-        const { email, password } = request.body
-        var credentialStatus = await UserService.validateCredentials(email, password)
+        const { cpf, senha } = request.body
+        var credentialStatus = await UserService.validateCredentials(cpf, senha)
 
         if (credentialStatus.status) {
             return response.status(200).json({
