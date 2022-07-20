@@ -4,7 +4,7 @@ class contaDependenteService{
     async insertContaDependente(codigo){
         try {
             const database = await DbConnection();
-            await database.query('INSERT INTO contadependente (contadependente_codigo) value (?)',codigo);
+            await database.query('INSERT INTO ContaDependente (contadependente_codigo) value (?)',codigo);
         } catch (error) {
             console.log(error);
             return error;
@@ -14,7 +14,7 @@ class contaDependenteService{
     async getAllContaDependente() {
         try {
             const database = await DbConnection();
-            const [contas] = await database.query('SELECT * FROM Contadependente;');
+            const [contas] = await database.query('SELECT * FROM ContaDependente;');
             return contas;
         } catch (error) {
             return error;
@@ -23,7 +23,7 @@ class contaDependenteService{
     async getContaDependenteByCodigo(codigo) {
         try {
             const database = await DbConnection();
-            const [contas] = await database.query('SELECT * FROM Contadependente WHERE contadependente_codigo=?;', codigo);
+            const [contas] = await database.query('SELECT * FROM ContaDependente WHERE contadependente_codigo=?;', codigo);
             if (contas.length > 0) {
                 return contas[0];
             }
@@ -35,7 +35,7 @@ class contaDependenteService{
     async deleteContaDependente(codigo) {
         try {
             const database = await DbConnection();
-            await database.query('DELETE FROM Contadependente WHERE contadependente_codigo=?;', codigo);
+            await database.query('DELETE FROM ContaDependente WHERE contadependente_codigo=?;', codigo);
         } catch (error) {
             return error;
         }

@@ -85,7 +85,7 @@ class UserService {
             
             if (userFound.length > 0) {
                 if (await Bcrypt.comparePassword(senha, userFound[0].cliente_senha))
-                    return credentialsStatus = { status: true, msg: 'Credenciais válidas!', id: userFound.cliente_id };
+                    return credentialsStatus = { status: true, msg: 'Credenciais válidas!', id: userFound[0].cliente_id };
             } 
             
             return credentialsStatus = { status: false, err: 'Usuário e/ou senha incorretos!' };

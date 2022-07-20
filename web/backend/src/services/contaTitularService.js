@@ -4,7 +4,7 @@ class ContaTitularService {
     async insertContaTitular(codigo) {
         try {
             const database = await DbConnection();
-            const insertQuery = 'INSERT INTO Contatitular (contatitular_codigo) values (?)';
+            const insertQuery = 'INSERT INTO ContaTitular (contatitular_codigo) values (?)';
             const value = codigo;
             await database.query(insertQuery, value);
             console.log("Conta Titular Criada com Sucesso");
@@ -16,7 +16,7 @@ class ContaTitularService {
     async getAllContaTitular() {
         try {
             const database = await DbConnection();
-            const [contas] = await database.query('SELECT * FROM Contatitular;');
+            const [contas] = await database.query('SELECT * FROM ContaTitular;');
             return contas;
         } catch (error) {
             return error;
@@ -25,7 +25,7 @@ class ContaTitularService {
     async getContaTitularByCodigo(codigo) {
         try {
             const database = await DbConnection();
-            const [contas] = await database.query('SELECT * FROM Contatitular WHERE contatitular_codigo=?;', codigo);
+            const [contas] = await database.query('SELECT * FROM ContaTitular WHERE contatitular_codigo=?;', codigo);
             if (contas.length > 0) {
                 return contas[0];
             }
@@ -37,7 +37,7 @@ class ContaTitularService {
     async deleteConta(codigo) {
         try {
             const database = await DbConnection();
-            await database.query('DELETE FROM Contatitular WHERE contatitular_codigo=?;', codigo);
+            await database.query('DELETE FROM ContaTitular WHERE contatitular_codigo=?;', codigo);
         } catch (error) {
             return error;
         }

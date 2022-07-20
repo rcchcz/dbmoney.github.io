@@ -29,7 +29,7 @@ class DependentService{
     async getCodConta(id){
         try {
             const database = await DbConnection();
-            const [result] = await database.query('select dependente_cod_conta from dependente where dependente_id = ?',id);
+            const [result] = await database.query('select dependente_cod_conta from Dependente where dependente_id = ?',id);
             if(result.length > 0){
                 return result[0].dependente_cod_conta;
             }
@@ -42,7 +42,7 @@ class DependentService{
     async getAllDependentId(){
         try {
             const database = await DbConnection();
-            const selectQuery = 'SELECT dependente_id from dependente;';
+            const selectQuery = 'SELECT dependente_id from Dependente;';
             const [ids] = await database.query(selectQuery);
             return ids;
         } catch (error) {
@@ -53,7 +53,7 @@ class DependentService{
     async getDependenteByIdTitular(idTitular){
         try {
             const database = await DbConnection();
-            const [result] = await database.query('select * from dependente where dependente_titular_id = ?',idTitular)
+            const [result] = await database.query('select * from Dependente where dependente_titular_id = ?',idTitular)
             if(result.length > 0){
                 console.log("Entrei");
                 console.log(result[0]);
@@ -67,7 +67,7 @@ class DependentService{
     async getCodContaByNumCartao(num_cartao){
         try {
             const database = await DbConnection();
-            const [result] = await database.query('select dependente_cod_conta from dependente where dependente_num_cartao = ?',num_cartao)
+            const [result] = await database.query('select dependente_cod_conta from Dependente where dependente_num_cartao = ?',num_cartao)
             if(result.length > 0){
                 console.log(result[0]);
                 return result[0];

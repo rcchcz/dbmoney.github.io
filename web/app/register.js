@@ -4,7 +4,7 @@ function handleSubmitForm(event) {
     let elements = form.elements;
     let payload = buildPayload(elements);
     let request = new XMLHttpRequest();
-    request.open('POST', 'http://localhost:3000/user');
+    request.open('POST', 'http://localhost:3000/titular');
     request.setRequestHeader('Content-Type', 'application/json');
     request.onload  = function() {
         if (this.status == 200) {

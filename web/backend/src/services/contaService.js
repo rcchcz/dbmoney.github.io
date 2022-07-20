@@ -13,6 +13,7 @@ class ContaService {
             const values = [tipo, saldo, codigoAgencia];
             let insertedId;
             const result = await database.query(insertQuery, values);
+            console.log(result);
             return result[0].insertId;
         } catch (error) {
             console.log(error);
@@ -74,7 +75,7 @@ class ContaService {
             if(valor >= 0){
                 const database = await DbConnection();
                 //await database.query('SELECT conta_saldo from conta where conta_codigo = ?',contaCodigo)
-                const [result] = await database.query('SELECT conta_saldo from conta where conta_codigo = ?',contaCodigo);
+                const [result] = await database.query('SELECT conta_saldo from Conta where conta_codigo = ?',contaCodigo);
                 if(result.length > 0){
                     if (result[0].conta_saldo < valor){
                         throw "Saldo Insuficiente";

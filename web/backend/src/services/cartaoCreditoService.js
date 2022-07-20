@@ -6,7 +6,7 @@ class CartaoCreditoService{
         try {
             const database = await DbConnection();
             const values = [num_cartao,1000];
-            await database.query('insert into cartaocredito (cartaocredito_num_cartao,cartaocredito_limite)'
+            await database.query('insert into CartaoCredito (cartaocredito_num_cartao,cartaocredito_limite)'
             +' values (?,?)',values);
         } catch (error) {
             console.log(error);
@@ -17,7 +17,7 @@ class CartaoCreditoService{
     async getCartaoCreditoByNumCartao(num_cartao){
         try {
             const database = await DbConnection();
-            const [result] = await database.query('select * from cartaocredito where cartaocredito_num_cartao = ?',num_cartao)
+            const [result] = await database.query('select * from CartaoCredito where cartaocredito_num_cartao = ?',num_cartao)
             if(result.length > 0){
                 return result[0];
             }

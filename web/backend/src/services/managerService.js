@@ -51,7 +51,7 @@ class ManagerService{
     async updateManager(id,newName){
         try {
             const database = await DbConnection();
-            const query = 'UPDATE gerente SET gerente_nome=? WHERE gerente_id=?;';
+            const query = 'UPDATE Gerente SET gerente_nome=? WHERE gerente_id=?;';
             const values = [newName,id];
             const queryUpdate = await database.query(query,values);
         } catch (error) {
