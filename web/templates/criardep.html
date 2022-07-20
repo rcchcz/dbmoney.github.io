@@ -32,11 +32,11 @@
   	  <img src="../icons/extrato.png" alt="Extrato icon" class="icon-sidebar">
   	  Extrato
   	</a>
-	  <a href="pix.html">
+	  <a class="active" href="pix.html">
   	  <img src="../icons/pix.png" alt="Pix icon" class="icon-sidebar">
   	  Pix
   	</a>
-	  <a class="active" href="recarga.html">  	  
+	  <a href="recarga.html">  	  
   	  <img src="../icons/recarga.png" alt="Recarga icon" class="icon-sidebar">
   	  Recarga
   	</a>
@@ -51,39 +51,17 @@
   	<a href="sac.html">Atendimento ao Cliente</a>
     </div>
 
-    <div class="content">
+	<div class="content">
     	<div class="topbar-page">
-    	  <h3 class="title-page">Recarga</h3>
+    	  <h3 class="title-page">Criar dependente</h3>
     	</div>
         
-		<form class="form-recarga" onsubmit="confirm_recarga()">
-			<div class="common-field-title">Número (apenas dígitos)</div>
-			<div class="field-input"><input type="tel" pattern="[1-9]{2}9[0-9]{4}[0-9]{4}" name="tel" id="valor-boleto" placeholder="(DDD) + Número" required></div>
+		<form class="form-recarga">
+			<div class="common-field-title">Nome do dependente</div>
+			<div class="field-input"><input type="text" name="depname" placeholder="Insira o nome do dependente" required></div>
 			
-			<div class="common-field-title">Operadora</div>
-			<select class="field-input" name="operadora" required>
-				<option value="claro">Claro</option>
-				<option value="oi">Oi</option>
-				<option value="tim">Tim</option>
-				<option value="vivo">Vivo</option>
-			</select>
-
-			<div class="common-field-title">Valor</div>
-			<select class="field-input" name="valor" required>
-				<option value="r10">R$ 10</option>
-				<option value="r15">R$ 15</option>
-				<option value="r20">R$ 20</option>
-				<option value="r30">R$ 30</option>
-				<option value="r50">R$ 50</option>
-				<option value="r100">R$ 100</option>
-			</select>
-
-			<div class="common-field-title">Método de pagamento</div>
-			<select class="field-input" name="valor" required>
-				<option value="ppix">Pix</option>
-				<option value="pdebito">Débito</option>
-				<option value="pcredito">Crédito</option>
-			</select>
+			<div class="common-field-title">Limite</div>
+			<div class="field-input"><input type="number" min="0" name="deplim" placeholder="Insira o valor de limite" required></div>     
 			
 			<div class="options">
 				<button type="button" class="btn-auxiliar" onclick="location.reload()">Cancelar</button>
@@ -91,7 +69,8 @@
 			</div>
 		</form>
     </div> 
-  </div> 
-<script defer src="../app/authentication.js"></script>        
+  
+</div> 
+</div>
 </body>
 </html>
