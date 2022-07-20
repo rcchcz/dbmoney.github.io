@@ -30,7 +30,8 @@ function getClient(id) {
 document.addEventListener("DOMContentLoaded", function(event) {
     event.preventDefault();
     let idClient = sessionStorage.getItem('cliente_id');
-    if(idClient) {
+    let nameClient = sessionStorage.getItem('cliente_nome');
+    if(idClient && nameClient) {
         renderSidebar();
     }
 })

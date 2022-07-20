@@ -16,7 +16,6 @@ function handleSubmitForm(event) {
         if (this.status == 200) {
             let responseData = JSON.parse(request.response);
             sessionStorage.setItem('cliente_id', responseData.id);
-            renderSidebar();
             document.location.href = 'dashboard.html';
         } else {
             let message = "Usuário e/ou senha incorretos!";
@@ -40,13 +39,3 @@ function buildPayload(elements) {
     return payloadString;
 }
 form.addEventListener('submit', event => handleSubmitForm(event));
-
-function renderSidebar() {
-    // icone do cliente
-    let userAvatar = document.querySelector('.user-pic');
-    userAvatar.innerHTML = sessionStorage.getItem('cliente_nome')[0];
-
-    // nome do cliente
-    let userName = document.querySelector('.user-name');
-    userName.innerHTML = sessionStorage.getItem('cliente_nome');
-}
