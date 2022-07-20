@@ -1,4 +1,5 @@
 const UserService = require('../../services/userService')
+const ChavePixService = require('../../services/chavePixService')
 
 class UserController {
     async create_user(request, response) {

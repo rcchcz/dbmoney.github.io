@@ -7,6 +7,7 @@ const CartaoCreditoService = require('../../services/cartaoCreditoService')
 const CartaoDebitoService = require('../../services/cartaoDebitoService')
 const dependentService = require('../../services/dependentService')
 const dependentController = require('./dependentController')
+const ChavePixService = require('../../services/chavePixService')
 
 class TitularController {
     async create_Titular(request, response) {
@@ -27,6 +28,8 @@ class TitularController {
 
             //Inserindo Titular na Tabela
             await TitularService.insertTitular(titularReceived);
+            
+            await ChavePixService.insertChavePixCPF(titularReceived.cliente_cpf)
 
             //Criando um Cartao
             await CartaoService.insertCartao(titularReceived.id);
@@ -92,12 +95,18 @@ class TitularController {
     async delete_titular(request,response){
         try {
             const {id} = request.params;
-            const dependente = await dependentService.getDependenteByIdTitular(id);
-            const titular = await TitularService.getTitularById(id);
-            UserService.deleteUser(dependente.dependente_id);
-            UserService.deleteUser(id);
-            ContaService.deleteConta(titular.titular_cod_conta);
-            ContaService.deleteConta(dependente.dependente_cod_conta);
+            if(await dependentService.hasDependente(id) == true){
+                const dependente = await dependentService.getDependenteByIdTitular(id);
+                const titular = await TitularService.getTitularById(id);
+                UserService.deleteUser(dependente.dependente_id);
+                UserService.deleteUser(id);
+                ContaService.deleteConta(titular.titular_cod_conta);
+                ContaService.deleteConta(dependente.dependente_cod_conta);
+            }else if(await dependentService.hasDependente(id) == false){
+                const titular = await TitularService.getTitularById(id);
+                UserService.deleteUser(id);
+                ContaService.deleteConta(titular.titular_cod_conta);
+            }
             return response.status(200).json({
                 msg: "Titular removido com sucesso"
             }) 

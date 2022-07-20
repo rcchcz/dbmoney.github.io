@@ -26,6 +26,16 @@ class CartaoCreditoService{
             return error;
         }
     }
+
+    async increaseLimite(num_cartao){
+        try {
+            const database = await DbConnection();
+            await database.query('update cartaocredito set cartaocredito_limite = cartaocredito_limite + 500 where cartaocredito_num_cartao = ?',num_cartao);
+        } catch (error) {
+            console.log(error);
+            return error;
+        }
+    }
 }
 
 module.exports = new CartaoCreditoService();

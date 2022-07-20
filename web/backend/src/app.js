@@ -8,6 +8,7 @@ const routesConta = require('./api/routes/contaRoutes')
 const routesCartao = require('./api/routes/cartaoRoutes')
 const routesCartaoCredito = require('./api/routes/cartaoCreditoRoutes')
 const routesCartaoDebito = require('./api/routes/cartaoDebitoRoutes')
+const routesEmprestimo = require('./api/routes/emprestimoRoutes')
 const routesUser = require('./api/routes/userRoutes')
 
 
@@ -26,6 +27,7 @@ app.use(routesConta)
 app.use(routesCartao)
 app.use(routesCartaoCredito)
 app.use(routesCartaoDebito)
+app.use(routesEmprestimo)
 app.use(routesUser)
 
 app.listen(port, () => { 
