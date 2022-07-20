@@ -6,10 +6,10 @@ class UserService {
         try {
             const database = await DbConnection();
             const passwordEncrypted = await Bcrypt.hashingPassword(userReceived.senha);
-            const insertQuery = 'INSERT INTO Cliente (cliente_nome, cliente_telefone, ' +
+            const insertQuery = 'INSERT INTO Cliente (cliente_nome, cliente_email, cliente_telefone, ' +
                 'cliente_cpf, cliente_endereco, cliente_data_nascimento, ' +
-                'cliente_senha, cliente_id_gerente) VALUES (?,?,?,?,?,?,?);';
-            const values = [userReceived.nome, userReceived.telefone, userReceived.cpf, 
+                'cliente_senha, cliente_id_gerente) VALUES (?,?,?,?,?,?,?,?);';
+            const values = [userReceived.nome, userReceived.email, userReceived.telefone, userReceived.cpf, 
                 userReceived.endereco, userReceived.data_nascimento, 
                 passwordEncrypted, 1];
             await database.query(insertQuery, values);
@@ -40,10 +40,10 @@ class UserService {
     async updateUser(id, userReceived) {
         try {
             const database = await DbConnection();
-            const updateQuery = 'UPDATE Cliente SET cliente_nome=?, cliente_telefone=?, ' +
+            const updateQuery = 'UPDATE Cliente SET cliente_nome=?, cliente_email=?, cliente_telefone=?, ' +
                 'cliente_cpf=?, cliente_endereco=?, cliente_data_nascimento=?, ' +
                 'cliente_senha=?, cliente_id_gerente=? WHERE cliente_id=?;';
-            const values = [userReceived.nome, userReceived.telefone, userReceived.cpf, 
+            const values = [userReceived.nome, userReceived.email, userReceived.telefone, userReceived.cpf, 
                 userReceived.endereco, userReceived.data_nascimento, 
                 userReceived.senha, 1, id];
             await database.query(updateQuery, values);
@@ -78,7 +78,7 @@ class UserService {
             
             if (userFound.length > 0) {
                 if (await Bcrypt.comparePassword(senha, userFound[0].cliente_senha))
-                    return credentialsStatus = { status: true, msg: 'Credenciais válidas!', id: userFound.cliente_id };
+                    return credentialsStatus = { status: true, msg: 'Credenciais válidas!', id: userFound[0].cliente_id };
             } 
             
             return credentialsStatus = { status: false, err: 'Usuário e/ou senha incorretos!' };
