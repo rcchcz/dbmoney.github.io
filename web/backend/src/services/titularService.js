@@ -17,9 +17,11 @@ class TitularService{
             const database = await DbConnection();
             const [titulares] = await database.query('SELECT * FROM titular WHERE titular_id=?;', id);
             if (titulares.length > 0) {
+                console.log(titulares[0])
                 return titulares[0];
             }
         } catch (error) {
+            console.log(error);
             return error;
         }
     }
@@ -49,6 +51,17 @@ class TitularService{
             const updateQuery = 'UPDATE titular SET titular_cod_conta=? WHERE titular_id=?;';
             const values = [titularReceived.titular_cod_conta, id];
             await database.query(updateQuery, values);
+        } catch (error) {
+            return error;
+        }
+    }
+
+    async getAllTitularId(){
+        try {
+            const database = await DbConnection();
+            const selectQuery = 'SELECT titular_id from titular;';
+            const [ids] = await database.query(selectQuery);
+            return ids;
         } catch (error) {
             return error;
         }

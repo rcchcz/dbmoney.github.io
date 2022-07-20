@@ -8,4 +8,8 @@ router.get('/conta/:codigo', ContaController.show_conta)
 router.put('/conta/:codigo', ContaController.update_conta)
 router.delete('/conta/:codigo', ContaController.delete_conta)
 
+//ROTAS PARA TESTE
+router.get('/conta/:codigo/:valor',ContaController.addSaldo)
+router.post('/conta/:codigo/:valor',ContaController.removeSaldo)
+
 module.exports = router

@@ -9,6 +9,7 @@ class ManagerService{
             const values = managerReceived.nome;
             await database.query(insertQuery,values);
         } catch (error) {
+            console.log(error);
             return error;
         }
     }
@@ -19,6 +20,7 @@ class ManagerService{
             const [gerentes] = await database.query('SELECT * FROM Gerente;')
             return gerentes;
         } catch (error) {
+            console.log(error);
             return error;
         }
     }
@@ -31,6 +33,7 @@ class ManagerService{
                 return gerentes[0];
             }
         } catch (error) {
+            console.log(error);
             return error;
         }
     }
@@ -40,6 +43,7 @@ class ManagerService{
             const database = await DbConnection();
             await database.query('DELETE FROM Gerente WHERE gerente_id=?;',id)
         } catch (error) {
+            console.log(error);
             return error;
         }
     }
