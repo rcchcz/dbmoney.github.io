@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/LoginStyle.css">
+	<script src="../app/app.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
     <title>DBMoney</title>
 </head>
@@ -14,11 +16,11 @@
     	<div class="avatar">
     	  <div class="user-pic"></div>
     	  <div class="user-infos">
-    	    <p class="user-name"></p>
+    	    <p class="user-name">Nome Sobrenome</p>
     	    <p class="user-account">123456789-0</p>
     	  </div>
     	</div>
-	<a class="active" href="dashboard.html">
+	<a href="dashboard.html">
 	  <img src="../icons/dashboard.png" alt="Dashboard icon" class="icon-sidebar">
 	  Dashboard
 	</a>
@@ -30,7 +32,7 @@
   	  <img src="../icons/extrato.png" alt="Extrato icon" class="icon-sidebar">
   	  Extrato
   	</a>
-	  <a href="pix.html">
+	  <a class="active" href="pix.html">
   	  <img src="../icons/pix.png" alt="Pix icon" class="icon-sidebar">
   	  Pix
   	</a>
@@ -49,53 +51,26 @@
   	<a href="sac.html">Atendimento ao Cliente</a>
     </div>
 
-    <div class="content">
+	<div class="content">
     	<div class="topbar-page">
-    	  <h3 class="title-page">Dashboard</h3>
+    	  <h3 class="title-page">Criar dependente</h3>
     	</div>
-        <div class="section-content">
-          <div class="saldo" style="margin-right: 40px;">
-            <p class="saldo-title">Saldo Disponível</p>
-            <p class="saldo-content">R$2.000,00</p>
-          </div>
-          <div class="saldo">
-            <p class="saldo-title">Fatura Atual</p>
-            <p class="saldo-content">R$1.000,00</p>
-          </div>
-        </div>
-		
-		<div class="options" style="padding: 10px 0px 10px 10px; margin-left: 100px;">
-			<button type="submit" class="btn-padrao" id="btn-fatura">Pagar fatura</button>
-		</div>
-
-        <div class="section-content">
-			<div class="report"><p>Dependentes</p>  
-			<div class="row dep-info">
-			<div class="column">Ana Carla Souza</div>
-			<div class="column">R$ 1000</div>
-			</div> 
-
-			<div class="row dep-info">
-				<div class="column">Pedro Paulo</div>
-				<div class="column">R$ 2500</div>
-				</div> 
-		</div>  
-	</div>
-		
-		<div class="options" style="padding: 10px 0px 10px 10px; margin-left: 100px;">
-			<button type="submit" class="btn-padrao" id="btn-novodep"><a href="criardep.html">Novo dependente</a></button>
-		</div>
-
         
-        <div class="section-content">
-          <div class="report">
-            <p>Últimos 30 dias</p>
-            <div class="items-report">
-            </div>
-          </div>          
-        </div>
+		<form class="form-recarga">
+			<div class="common-field-title">Nome do dependente</div>
+			<div class="field-input"><input type="text" name="depname" placeholder="Insira o nome do dependente" required></div>
+			
+			<div class="common-field-title">Limite</div>
+			<div class="field-input"><input type="number" min="0" name="deplim" placeholder="Insira o valor de limite" required></div>     
+			
+			<div class="options">
+				<button type="button" class="btn-auxiliar" onclick="location.reload()">Cancelar</button>
+				<button type="submit" class="btn-padrao">Confirmar</button>
+			</div>
+		</form>
     </div> 
-  </div> 
-<script defer src="../app/authentication.js"></script>    
+  
+</div> 
+</div>
 </body>
 </html>
