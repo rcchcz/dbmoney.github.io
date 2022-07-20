@@ -1,17 +1,22 @@
 const DbConnection = require('../database/connection')
 
 class ContaService {
-    async insertConta(contaReceived) {
+    async insertConta() {
         try {
             const database = await DbConnection();
-            const insertQuery = 'INSERT INTO Conta (conta_codigo, conta_tipo, conta_saldo, conta_codigo_agencia) ' +
-                'VALUES (?,?,?,?);';
+            const insertQuery = 'INSERT INTO Conta (conta_tipo, conta_saldo, conta_codigo_agencia) ' +
+                'VALUES (?,?,?);';
             let saldo = 0.0;
             let codigoAgencia = 1;
-            const values = [contaReceived.conta_codigo, contaReceived.conta_tipo, saldo, codigoAgencia];
-            await database.query(insertQuery, values);
-        } catch (err) {
-            return err;
+            let tipo = 0;
+             /*Nessa parte Inicial Somente um Tipo de Conta*/
+            const values = [tipo, saldo, codigoAgencia];
+            let insertedId;
+            const result = await database.query(insertQuery, values);
+            return result[0].insertId;
+        } catch (error) {
+            console.log(error);
+            return error;
         }
     }
     async getAllContas() {
@@ -48,8 +53,38 @@ class ContaService {
         try {
             const database = await DbConnection();
             await database.query('DELETE FROM Conta WHERE conta_codigo=?;', codigo);
-        } catch (err) {
+            console.log("DELETADA!!!");
+        } catch (error) {
+            console.log(error)
             return err;
+        }
+    }
+    async addSaldo(contaCodigo,valor){
+        try {
+            const database = await DbConnection();
+            const values = [valor,contaCodigo];
+            await database.query('UPDATE Conta SET conta_saldo = conta_saldo + ? where conta_codigo = ?',values);
+        } catch (error) {
+            console.log(error);
+            return error;
+        }
+    }
+    async removeSaldo(contaCodigo,valor){
+        try {
+            if(valor >= 0){
+                const database = await DbConnection();
+                //await database.query('SELECT conta_saldo from conta where conta_codigo = ?',contaCodigo)
+                const [result] = await database.query('SELECT conta_saldo from conta where conta_codigo = ?',contaCodigo);
+                if(result.length > 0){
+                    if (result[0].conta_saldo < valor){
+                        throw "Saldo Insuficiente";
+                    }
+                }
+                const values = [valor,contaCodigo];
+                await database.query('UPDATE Conta SET conta_saldo = conta_saldo - ? where conta_codigo = ?',values);
+            }
+        } catch (error) {
+            return error;
         }
     }
 }

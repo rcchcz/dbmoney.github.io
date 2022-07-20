@@ -1,8 +1,15 @@
 const express = require('express')
 const cors = require('cors')
 
-const routesUser = require('./api/routes/userRoutes')
+const routesManager = require('./api/routes/managerRoutes')
+const routesDependent = require('./api/routes/dependentRoutes')
+const routesTitular = require('./api/routes/titularRoutes')
 const routesConta = require('./api/routes/contaRoutes')
+const routesCartao = require('./api/routes/cartaoRoutes')
+const routesCartaoCredito = require('./api/routes/cartaoCreditoRoutes')
+const routesCartaoDebito = require('./api/routes/cartaoDebitoRoutes')
+const routesUser = require('./api/routes/userRoutes')
+
 
 const app = express()
 const port = 3000
@@ -12,8 +19,14 @@ app.use('/static', express.static('public'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-app.use(routesUser)
+app.use(routesManager)
+app.use(routesDependent)
+app.use(routesTitular)
 app.use(routesConta)
+app.use(routesCartao)
+app.use(routesCartaoCredito)
+app.use(routesCartaoDebito)
+app.use(routesUser)
 
 app.listen(port, () => { 
     console.log('Servidor rodando na porta ', port)
