@@ -64,6 +64,44 @@ class ContaController {
             })
         }
     }
+    async addSaldoByBoleto(request,response){
+        try {
+            
+        } catch (error) {
+            console.log(error);
+            return error;
+        }
+    }
+
+    async addSaldo(request,response){
+        try {
+            const codigo = request.params.codigo;
+            const valor = request.params.valor;  
+            ContaService.addSaldo(codigo,valor);
+            return response.status(200).json({
+                msg: 'Saldo adicionado com sucesso'
+            })
+        } catch (error) {
+            return response.status(400).json({
+                error: error
+            })
+        }
+    }
+
+    async removeSaldo(request,response){
+        try {
+            const codigo = request.params.codigo;
+            const valor = request.params.valor;  
+            ContaService.removeSaldo(codigo,valor);
+            return response.status(200).json({
+                msg: 'Saldo descontado com sucesso'
+            })
+        } catch (error) {
+            return response.status(400).json({
+                error: error
+            })
+        }
+    }
 }
 
 module.exports = new ContaController() 
