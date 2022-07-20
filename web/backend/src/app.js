@@ -8,9 +8,7 @@ const routesConta = require('./api/routes/contaRoutes')
 const routesCartao = require('./api/routes/cartaoRoutes')
 const routesCartaoCredito = require('./api/routes/cartaoCreditoRoutes')
 const routesCartaoDebito = require('./api/routes/cartaoDebitoRoutes')
-
 const routesUser = require('./api/routes/userRoutes')
-const routesConta = require('./api/routes/contaRoutes')
 
 
 const app = express()
