@@ -61,6 +61,7 @@ body{
   margin: 0;
   padding: 30px 10px;
   width: 20%;
+  height: 100vh;
   border-right: 3px solid #70E000;
   background-color: #252422;
 }
