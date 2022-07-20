@@ -1,4 +1,6 @@
 const ContaService = require('../../services/contaService')
+const DependentService = require('../../services/dependentService')
+const TitularService = require('../../services/titularService')
 
 class ContaController {
     async create_conta(request, response) {
@@ -97,6 +99,26 @@ class ContaController {
             return response.status(200).json({
                 msg: 'Saldo descontado com sucesso'
             })
+        } catch (error) {
+            return response.status(400).json({
+                error: error
+            })
+        }
+    }
+
+    async getSaldo(request,response){
+        try {
+            const id = request.params.id;
+            if(await DependentService.isDependente(id) == true){
+                const codConta = await DependentService.getCodConta(id);
+                const saldo = await ContaService.getSaldo(codConta);
+                return response.status(200).json(saldo)
+            }else if(await DependentService.isDependente(id) == false){
+                console.log("Teste 03");
+                const codConta = await TitularService.getCodConta(id);
+                const saldo = await ContaService.getSaldo(codConta);
+                return response.status(200).json(saldo)
+            }
         } catch (error) {
             return response.status(400).json({
                 error: error

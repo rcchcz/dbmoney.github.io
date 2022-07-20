@@ -17,7 +17,6 @@ class TitularService{
             const database = await DbConnection();
             const [titulares] = await database.query('SELECT * FROM titular WHERE titular_id=?;', id);
             if (titulares.length > 0) {
-                console.log(titulares[0])
                 return titulares[0];
             }
         } catch (error) {
@@ -63,6 +62,19 @@ class TitularService{
             const [ids] = await database.query(selectQuery);
             return ids;
         } catch (error) {
+            return error;
+        }
+    }
+
+    async getCodConta(id){
+        try {
+            const database = await DbConnection();
+            const [result] = await database.query('select titular_cod_conta from titular where titular_id = ?',id);
+            if(result.length > 0){
+                return result[0].titular_cod_conta;
+            }
+        } catch (error) {
+            console.log(error);
             return error;
         }
     }

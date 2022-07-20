@@ -55,11 +55,10 @@ class DependentService{
             const database = await DbConnection();
             const [result] = await database.query('select * from dependente where dependente_titular_id = ?',idTitular)
             if(result.length > 0){
-                console.log("Entrei");
-                console.log(result[0]);
                 return result[0];
             }
         } catch (error) {
+            console.log(error);
             return error;
         }
     }
@@ -72,6 +71,34 @@ class DependentService{
                 console.log(result[0]);
                 return result[0];
             }
+        } catch (error) {
+            console.log(error);
+            return error;
+        }
+    }
+
+    async isDependente(id){
+        try {
+            const database = await DbConnection();
+            const [result] = await database.query('select * from dependente where dependente_id = ?',id);
+            if(result.length > 0){
+                return true;
+            }
+            return false;
+        } catch (error) {
+            console.log(error);
+            return error;
+        }
+    }
+
+    async hasDependente(id){
+        try {
+            const database = await DbConnection();
+            const [result] = await database.query('select * from dependente where dependente_titular_id = ?',id);
+            if(result.length > 0){
+                return true;
+            }
+            return false;
         } catch (error) {
             console.log(error);
             return error;

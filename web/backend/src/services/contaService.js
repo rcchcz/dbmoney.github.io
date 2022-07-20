@@ -87,6 +87,28 @@ class ContaService {
             return error;
         }
     }
+    async getSaldo(codConta){
+        try {
+            const database = await DbConnection();
+            const [result] = await database.query('select conta_saldo from conta where conta_codigo = ?',codConta);
+            if(result.length > 0){
+                return result[0].conta_saldo;
+            }else{
+                throw "Conta não encontrada";
+            }
+        } catch (error) {
+            return error;
+        }
+    }
+
+    async getContaById(id){
+        try {
+            const database = await DbConnection();
+
+        } catch (error) {
+            return error;
+        }
+    }
 }
 
 module.exports = new ContaService();
