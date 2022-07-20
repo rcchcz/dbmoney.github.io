@@ -36,6 +36,11 @@ body{
   height: 80px;
   margin: auto;
   margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .user-name {
@@ -126,6 +131,7 @@ div.content {
   border-radius: 5px;
   padding: 44px 50px;
   margin: auto 0;
+  max-width: 393.65px;
 }
 
 .saldo-title {
@@ -133,7 +139,7 @@ div.content {
 }
 
 .saldo-content {
-  font-size: 64px;
+  font-size: 50px;
   font-weight: bold;
   color: #8B8C89;
 }
@@ -141,12 +147,13 @@ div.content {
 .report {
   background: #FFFFFF;
   border-radius: 5px;
-  width: 100%;
+  width: 750px;
   padding: 44px 40px;
 }
 
 .items-report {
   margin-top: 40px;
+  color:#8B8C89;
 }
 
 .report-content {
@@ -183,9 +190,9 @@ div.content {
   .section-content {
     display: block;
   }
-  .saldo, .default-card, .black-card {
+  .saldo, .default-card, .black-card, .report {
     margin-top: 30px;
-    width: 100%;
+    width: 300px;
     padding: 44px 20px;
   }
   .saldo-content {
@@ -484,4 +491,16 @@ tr:nth-child(even) {
   border-radius: 5px;
   margin-top: 5px;
   padding-left: 5px;
+}
+
+.dep-info {
+  margin-left: 30px;
+  color: #8B8C89;
+  font-size: 15px;
+  padding: 10px 20px 10px 5px;
+}
+
+#a-novodep, #a-novodep:visited, #a-novodep:hover, #a-novodep:active {
+  color: #FFFFFF;
+  text-decoration: none;
 }

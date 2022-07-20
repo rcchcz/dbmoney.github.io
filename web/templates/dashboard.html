@@ -14,7 +14,7 @@
     	<div class="avatar">
     	  <div class="user-pic"></div>
     	  <div class="user-infos">
-    	    <p class="user-name">Nome Sobrenome</p>
+    	    <p class="user-name"></p>
     	    <p class="user-account">123456789-0</p>
     	  </div>
     	</div>
@@ -63,13 +63,30 @@
             <p class="saldo-content">R$1.000,00</p>
           </div>
         </div>
+		
+		<div class="options" style="padding: 10px 0px 10px 10px; margin-left: 100px;">
+			<button type="submit" class="btn-padrao" id="btn-fatura">Pagar fatura</button>
+		</div>
+
         <div class="section-content">
-          <div class="report">
-            <p>Dependentes</p>
-            <div class="items-report">
-            </div>
-          </div>          
-        </div>
+			<div class="report"><p>Dependentes</p>  
+			<div class="row dep-info">
+			<div class="column">Ana Carla Souza</div>
+			<div class="column">R$ 1000</div>
+			</div> 
+
+			<div class="row dep-info">
+				<div class="column">Pedro Paulo</div>
+				<div class="column">R$ 2500</div>
+				</div> 
+		</div>  
+	</div>
+		
+		<div class="options" style="padding: 10px 0px 10px 10px; margin-left: 100px;">
+			<button type="submit" class="btn-padrao" id="btn-novodep"><a href="criardep.html" id="a-novodep">Novo dependente</a></button>
+		</div>
+
+        
         <div class="section-content">
           <div class="report">
             <p>Últimos 30 dias</p>
@@ -78,6 +95,7 @@
           </div>          
         </div>
     </div> 
-  </div>       
+  </div> 
+<script defer src="../app/authentication.js"></script>    
 </body>
 </html>
