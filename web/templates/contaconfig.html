@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+	<script src="../app/app.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
+    <title>DBMoney</title>
+</head>
+<body>
+  <div class="wraper">
+    <div class="sidebar">
+    	<h1 class="brand">DBM</h1>
+    	<div class="avatar">
+    	  <div class="user-pic"></div>
+    	  <div class="user-infos">
+    	    <p class="user-name">Nome Sobrenome</p>
+    	    <p class="user-account">123456789-0</p>
+    	  </div>
+    	</div>
+	<a href="dashboard.html">
+	  <img src="../icons/dashboard.png" alt="Dashboard icon" class="icon-sidebar">
+	  Dashboard
+	</a>
+	<a href="deposito.html">  	
+  	  <img src="../icons/deposito.png" alt="Deposito icon" class="icon-sidebar">
+  	  Depósito
+  	</a>
+	  <a href="extrato.html">
+  	  <img src="../icons/extrato.png" alt="Extrato icon" class="icon-sidebar">
+  	  Extrato
+  	</a>
+	  <a href="pix.html">
+  	  <img src="../icons/pix.png" alt="Pix icon" class="icon-sidebar">
+  	  Pix
+  	</a>
+	  <a href="recarga.html">  	  
+  	  <img src="../icons/recarga.png" alt="Recarga icon" class="icon-sidebar">
+  	  Recarga
+  	</a>
+  	<a class="active" href="transferencia.html">
+  	  <img 
+  	    src="../icons/transferencia.png" alt="Transferencia icon" class="icon-sidebar">
+  	  Transferência
+  	</a>
+	
+  	<h3 class="section-sidebar">GERENCIAMENTO</h3>
+  	<a href="contaconfig.html">Configurações da Conta</a>
+  	<a href="sac.html">Atendimento ao Cliente</a>
+    </div>
+
+    <div class="content">
+    	<div class="topbar-page">
+    	  <h3 class="title-page">Configurações da Conta</h3>
+    	</div>
+        
+		<div class="common-field-title" style="margin-left: 30px;"> Meus cartões</div>
+		<div class="section-content">
+			<div class="default-card" style="margin-right: 40px;">
+				<p class="card-number">9999 9999 9999 9999</p>
+				<div class="row">
+					<div class="column">VALIDADE</div> 
+					<div class="column">CVC</div>
+				</div>
+				<div class="row">
+					<div class="column" id="card-val">28/09</div> 
+					<div class="column" id="card-cvc">125</div>
+				</div>	
+			</div>
+			
+			<div class="black-card" style="margin-right: 40px;">
+				<p class="card-number">9999 9999 9999 9999</p>
+				<div class="row">
+					<div class="column">VALIDADE</div> 
+					<div class="column">CVC</div>
+				</div>
+				<div class="row">
+					<div class="column" id="card-val">28/09</div> 
+					<div class="column" id="card-cvc">125</div>
+				</div>
+			</div>
+		  </div>
+		  	
+		  
+		<form onsubmit="">
+		<div class="common-field-title" style="margin-left: 30px;">Dados para contato</div>	
+			<div class="config-title">Email</div>
+			<div class="config-field-input"><input type="text" name="configemail" placeholder="Insira endereço de email"></div>
+
+			<div class="config-title">Telefone</div>
+			<div class="config-field-input"><input type="text" name="configtel" placeholder="Insira telefone"></div>
+
+			<div class="config-title">Endereço</div>
+			<div class="config-field-input"><input type="text" name="configend" placeholder="Insira endereço"></div>
+
+		<div class="common-field-title" style="margin-left: 30px;">Dependentes</div>
+
+		<div class="options">
+			<button type="button" class="btn-auxiliar" onclick="location.reload()">Cancelar</button>
+			<button type="submit" class="btn-padrao">Confirmar</button>
+		</div>
+		</form>
+			
+		  
+
+  	</div>       
+</body>
+</html>

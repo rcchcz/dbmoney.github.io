@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/LoginStyle.css">
+	<script src="../app/app.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
+    <title>DBMoney</title>
+</head>
+<body>
+  <div class="wraper">
+    <div class="sidebar">
+    	<h1 class="brand">DBM</h1>
+    	<div class="avatar">
+    	  <div class="user-pic"></div>
+    	  <div class="user-infos">
+    	    <p class="user-name">Nome Sobrenome</p>
+    	    <p class="user-account">123456789-0</p>
+    	  </div>
+    	</div>
+	<a href="dashboard.html">
+	  <img src="../icons/dashboard.png" alt="Dashboard icon" class="icon-sidebar">
+	  Dashboard
+	</a>
+	<a href="deposito.html">  	
+  	  <img src="../icons/deposito.png" alt="Deposito icon" class="icon-sidebar">
+  	  Depósito
+  	</a>
+	  <a href="extrato.html">
+  	  <img src="../icons/extrato.png" alt="Extrato icon" class="icon-sidebar">
+  	  Extrato
+  	</a>
+	  <a class="active" href="pix.html">
+  	  <img src="../icons/pix.png" alt="Pix icon" class="icon-sidebar">
+  	  Pix
+  	</a>
+	  <a href="recarga.html">  	  
+  	  <img src="../icons/recarga.png" alt="Recarga icon" class="icon-sidebar">
+  	  Recarga
+  	</a>
+  	<a href="transferencia.html">
+  	  <img 
+  	    src="../icons/transferencia.png" alt="Transferencia icon" class="icon-sidebar">
+  	  Transferência
+  	</a>
+	
+  	<h3 class="section-sidebar">GERENCIAMENTO</h3>
+  	<a href="contaconfig.html">Configurações da Conta</a>
+  	<a href="sac.html">Atendimento ao Cliente</a>
+    </div>
+
+	<div class="content">
+    	<div class="topbar-page">
+    	  <h3 class="title-page">Pix</h3>
+    	</div>
+        
+		<form class="form-recarga" onsubmit="confirm_pix()">
+			<div class="common-field-title">Chave pix (apenas dígitos)</div>
+			<div class="field-input"><input type="text" name="cpix" placeholder="Insira a chave pix" required></div>
+			
+			<div class="common-field-title">Valor</div>
+			<div class="field-input"><input type="number" min="0" step=".01" name="vpix" placeholder="Insira o valor de transferência" required></div>     
+
+			<div class="common-field-title">Mensagem</div>
+			<textarea class="field-input comment" placeholder="Mensagem para o destinatário"></textarea>
+			
+			<div class="options">
+				<button type="button" class="btn-auxiliar" onclick="location.reload()">Cancelar</button>
+				<button type="submit" class="btn-padrao">Confirmar</button>
+			</div>
+		</form>
+    </div> 
+  
+</div> 
+</div>
+</body>
+</html>
