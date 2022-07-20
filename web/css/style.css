@@ -147,6 +147,7 @@ div.content {
 
 .items-report {
   margin-top: 40px;
+  color:#8B8C89;
 }
 
 .report-content {
@@ -484,4 +485,16 @@ tr:nth-child(even) {
   border-radius: 5px;
   margin-top: 5px;
   padding-left: 5px;
+}
+
+.dep-info {
+  margin-left: 30px;
+  color: #8B8C89;
+  font-size: 15px;
+  padding: 10px 20px 10px 5px;
+}
+
+button > a, a:hover, a:focus, a:active, a:visited {
+  color: #FFFFFF;
+  text-decoration: none;
 }
