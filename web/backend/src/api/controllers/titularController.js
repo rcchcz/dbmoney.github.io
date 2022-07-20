@@ -20,7 +20,6 @@ class TitularController {
 
             //Criando a Conta do Cliente
             const accountCreatedId = await ContaService.insertConta();
-            console.log("AccountCreatedId -> " + accountCreatedId);
             titularReceived.titular_cod_conta = accountCreatedId;
 
             //Criando a Conta Titular
