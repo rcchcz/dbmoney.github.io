@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/LoginStyle.css">
+	<script src="../app/app.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
+    <title>DBMoney</title>
+</head>
+<body>
+  <div class="wraper">
+    <div class="sidebar">
+    	<h1 class="brand">DBM</h1>
+    	<div class="avatar">
+    	  <div class="user-pic"></div>
+    	  <div class="user-infos">
+    	    <p class="user-name">Nome Sobrenome</p>
+    	    <p class="user-account">123456789-0</p>
+    	  </div>
+    	</div>
+	<a href="dashboard.html">
+	  <img src="../icons/dashboard.png" alt="Dashboard icon" class="icon-sidebar">
+	  Dashboard
+	</a>
+	<a href="deposito.html">  	
+  	  <img src="../icons/deposito.png" alt="Deposito icon" class="icon-sidebar">
+  	  Depósito
+  	</a>
+	  <a class="active" href="extrato.html">
+  	  <img src="../icons/extrato.png" alt="Extrato icon" class="icon-sidebar">
+  	  Extrato
+  	</a>
+	  <a href="pix.html">
+  	  <img src="../icons/pix.png" alt="Pix icon" class="icon-sidebar">
+  	  Pix
+  	</a>
+	  <a href="recarga.html">  	  
+  	  <img src="../icons/recarga.png" alt="Recarga icon" class="icon-sidebar">
+  	  Recarga
+  	</a>
+  	<a href="transferencia.html">
+  	  <img 
+  	    src="../icons/transferencia.png" alt="Transferencia icon" class="icon-sidebar">
+  	  Transferência
+  	</a>
+	
+  	<h3 class="section-sidebar">GERENCIAMENTO</h3>
+  	<a href="contaconfig.html">Configurações da Conta</a>
+  	<a href="sac.html">Atendimento ao Cliente</a>
+    </div>
+
+    <div class="content">
+    	<div class="topbar-page">
+    	  <h3 class="title-page">Extrato</h3>
+    	</div>
+
+		<div class="row">
+			<div class="column common-field-title">Transações recentes</div>
+			<div class="column common-field-title">Período do extrato</div>
+		</div>
+
+		<div class="row">
+			<div class="column"></div>
+			<div class="column common-field-title" style="margin-top: -60px;">
+				<select class="filtro" name="filtrot">
+					<option value="t7">Últimos 7 dias</option>
+					<option value="t15">Últimos 15 dias</option>
+					<option value="t30">Últimos 30 dias</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="ext-item">
+			<div class="common-field-title ext-title">Título da operação <span class="ext-valent">R$ 300.76</span></div>
+			<div class="common-field-title ext-ben">Nome Sobrenome beneficiário</div>
+			<div class="common-field-title ext-date">DD/MM/AAAA HH:MM</div>
+		</div>
+
+		<div class="ext-item">
+			<div class="common-field-title ext-title">Título da operação <span class="ext-valsai">R$ 87.19</span></div>
+			<div class="common-field-title ext-ben">Nome Sobrenome beneficiário</div>
+			<div class="common-field-title ext-date">DD/MM/AAAA HH:MM</div>
+		</div>	
+	
+  	</div>       
+</body>
+</html>

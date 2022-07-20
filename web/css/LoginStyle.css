@@ -55,17 +55,30 @@ h3{
     text-align: center;
 }
 
+.wrapper{
+    background-color: #000000;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px 30px;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    border-radius: 20px;
+    text-align: center;
+    width: max-content;
+}
+
 form{
     margin-top: 30px;
     margin-bottom: 40px;
 }
 
-label, input{
+textarea, select, label, input{
     display: block;
     width: 100%;
 }
 
-input{
+textarea, select, input{
     border-radius: 5px;
     padding: 10px;
     /*margin-bottom: 25px;*/
@@ -80,12 +93,31 @@ input{
 }
 */
 
-input[type="submit"]{
+input[type="submit"] {
     text-align: center;
     color: white;
     background-color: #70E000;
     margin-top: 10px;
     cursor: pointer;
+}
+
+#cadastrar-btn {
+    width: 30%;
+    margin-left: 35%;
+}
+
+input[type="submit"]:hover {
+    text-align: center;
+    color: white;
+    background-color: #38b000;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#cadastrar-btn:hover {
+    background-color: #38b000;
+    width: 30%;
+    margin-left: 35%;
 }
 
 #remember-acess{
@@ -102,4 +134,28 @@ input[type="submit"]{
 .remember-acess{
     padding-top: 20px;
     text-align: left;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.column {
+    flex: 25%;
+    padding: 20px;
+    width: 400px;
+}
+
+@media screen and (max-width: 992px) {
+    .column {
+        flex: 50%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .row {
+        flex-direction: column;
+    }
 }

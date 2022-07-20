@@ -10,6 +10,10 @@ const routesCartaoCredito = require('./api/routes/cartaoCreditoRoutes')
 const routesCartaoDebito = require('./api/routes/cartaoDebitoRoutes')
 const routesEmprestimo = require('./api/routes/emprestimoRoutes')
 
+const routesUser = require('./api/routes/userRoutes')
+const routesConta = require('./api/routes/contaRoutes')
+
+
 const app = express()
 const port = 3000
 
@@ -26,6 +30,7 @@ app.use(routesCartao)
 app.use(routesCartaoCredito)
 app.use(routesCartaoDebito)
 app.use(routesEmprestimo)
+app.use(routesUser)
 
 app.listen(port, () => { 
     console.log('Servidor rodando na porta ', port)

@@ -66,7 +66,6 @@ class ContaController {
             })
         }
     }
-    
     async addSaldoByBoleto(request,response){
         try {
             
