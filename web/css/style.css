@@ -133,7 +133,7 @@ div.content {
 }
 
 .saldo-content {
-  font-size: 64px;
+  font-size: 50px;
   font-weight: bold;
   color: #8B8C89;
 }
@@ -141,7 +141,7 @@ div.content {
 .report {
   background: #FFFFFF;
   border-radius: 5px;
-  width: 100%;
+  width: 750px;
   padding: 44px 40px;
 }
 
@@ -184,9 +184,9 @@ div.content {
   .section-content {
     display: block;
   }
-  .saldo, .default-card, .black-card {
+  .saldo, .default-card, .black-card, .report {
     margin-top: 30px;
-    width: 100%;
+    width: 300px;
     padding: 44px 20px;
   }
   .saldo-content {
@@ -494,7 +494,7 @@ tr:nth-child(even) {
   padding: 10px 20px 10px 5px;
 }
 
-button > a, a:hover, a:focus, a:active, a:visited {
+#a-novodep, #a-novodep:visited, #a-novodep:hover, #a-novodep:active {
   color: #FFFFFF;
   text-decoration: none;
 }
