@@ -104,6 +104,19 @@ class DependentService{
             return error;
         }
     }
+
+    async getTitularID(idDependente){
+        try {
+            const database = await DbConnection();
+            const [result] = await database.query('select dependente_titular_id from dependente where dependente_id = ?',idDependente);
+            if(result.length > 0){
+                return result[0].dependente_titular_id;
+            }
+        } catch (error) {
+            console.log(error)
+            return error
+        }
+    }
 }
 
 module.exports = new DependentService();

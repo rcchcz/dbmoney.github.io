@@ -57,6 +57,7 @@ class CartaoService{
             if(result.length > 0){
                 let date = result[0].cartao_validade;
                 result[0].cartao_validade = date.getFullYear().toString().substring(2,4) + '/' + ("0"+(date.getMonth()+1)).slice(-2);
+                console.log(result[0].cartao_num_cartao);
                 return result[0];
             }
         } catch (error) {
