@@ -57,7 +57,7 @@ class ContaService {
             console.log("DELETADA!!!");
         } catch (error) {
             console.log(error)
-            return err;
+            return error;
         }
     }
     async addSaldo(contaCodigo,valor){

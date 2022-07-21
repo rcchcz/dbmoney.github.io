@@ -6,6 +6,7 @@ const ContaService = require('../../services/contaService');
 const CartaoService = require('../../services/cartaoService')
 const CartaoCreditoService = require('../../services/cartaoCreditoService')
 const CartaoDebitoService = require('../../services/cartaoDebitoService')
+const ChavePixService = require('../../services/chavePixService')
 
 class DependentController {
     async create_Dependent(request, response) {
@@ -33,6 +34,9 @@ class DependentController {
 
             //inserindo Dependente
             await DependentService.insertDependent(dependentReceived);
+
+            //Criando Chave Pix com CPF
+            await ChavePixService.insertChavePixCPF(dependentReceived.cliente_cpf)
             response.status(200).json({
                 msg: "Dependente inserido com sucesso"
             })
@@ -48,10 +52,12 @@ class DependentController {
         const { id } = request.params
         try {
             const CodConta = await DependentService.getCodConta(id);
+            const titularId = await DependentService.getTitularID(id);
             await DependentService.deleteDependent(id);
             await UserService.deleteUser(id);
             await ContaService.deleteConta(CodConta);
-            //Lembrar de Apagar Cartão Tbm Quando Implementar
+            const cartaoReceived = await CartaoService.getCartaoByTitularId(titularId);
+            await CartaoService.deleteCartao(cartaoReceived.cartao_num_cartao);
             return response.status(200).json({
                 msg: 'Dependente deletado com sucesso'
             })

@@ -29,6 +29,7 @@ class TitularController {
             //Inserindo Titular na Tabela
             await TitularService.insertTitular(titularReceived);
             
+            //Criando Chave Pix com CPF
             await ChavePixService.insertChavePixCPF(titularReceived.cliente_cpf)
 
             //Criando um Cartao
