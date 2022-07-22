@@ -5,7 +5,7 @@ Os protótipos criados estão disponíveis no [Figma](https://www.figma.com/file
 
 ## Ferramentas utilizadas
 
-As tecnologias utilizadas foram: 
+As ferramentas utilizadas foram: 
 
 - [HTML]()
 - [CSS]()
