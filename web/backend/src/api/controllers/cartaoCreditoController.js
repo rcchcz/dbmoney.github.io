@@ -36,20 +36,16 @@ class CartaoCreditoController {
     async pagarFatura(request,response){
         try {
             const id = request.params.id
-            console.log("id -> "+id)
             const cartao = await CartaoService.getCartaoByTitularId2(id);
-            console.log("cartao -> "+cartao)
             const codConta = await TitularService.getCodConta(id);
-            console.log("codConta -> "+codConta)
             const saldoConta = parseInt(await ContaService.getSaldo(codConta));
-            console.log("saldoConta -> "+saldoConta+" "+typeof saldoConta)
             const saldoSuficiente = await CartaoCreditoService.pagarFatura(cartao.cartao_num_cartao,saldoConta);
             if(saldoSuficiente == false){
                 throw "Saldo Insuficiente na Conta"
             }else if(saldoSuficiente == true){
-                
+                await ContaService.removeSaldo(codConta,await CartaoCreditoService.getFatura(cartao.cartao_num_cartao));
+                await CartaoCreditoService.updateFatura(cartao.cartao_num_cartao);
             }
-            await ContaService.removeSaldo(codConta,parseInt(saldoSuficiente));
             return response.status(200).json({
                 msg: 'Fatura paga com sucesso'
             })

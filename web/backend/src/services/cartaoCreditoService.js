@@ -37,10 +37,11 @@ class CartaoCreditoService{
         }
     }
 
-    async pagarFatura(num_cartao,saldoConta,fatura){
+    async pagarFatura(num_cartao,saldoConta){
         try {
             const database = await DbConnection();
-            if(this.getFatura(num_cartao) > saldoConta){
+            if(parseInt(this.getFatura(num_cartao)) > saldoConta){
+                console.log("falseeeeee")
                 return false;
             }
             return true;
@@ -57,6 +58,16 @@ class CartaoCreditoService{
             if(result.length > 0){
                 return result[0].cartaocredito_fatura;
             }
+        } catch (error) {
+            console.log(error)
+            return error
+        }
+    }
+
+    async updateFatura(num_cartao){
+        try {
+            const database = await DbConnection();
+            await database.query('update cartaocredito set cartaocredito_fatura = 0 where cartaocredito_num_cartao = ?',num_cartao)
         } catch (error) {
             console.log(error)
             return error
