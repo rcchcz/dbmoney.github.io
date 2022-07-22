@@ -53,7 +53,7 @@ class CartaoCreditoService{
     async getFatura(num_cartao){
         try {
             const database = await DbConnection();
-            const [result] = await database.query('select cartaocredito_fatura from cartaocredito where cartaocredito_num_cartao = ?',num_cartao);
+            const [result] = await database.query('select cartaocredito_fatura from CartaoCredito where cartaocredito_num_cartao = ?',num_cartao);
             if(result.length > 0){
                 return result[0].cartaocredito_fatura;
             }

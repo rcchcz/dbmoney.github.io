@@ -2,7 +2,19 @@ function validate_boleto() {
     var val = document.getElementById("valor-boleto").value
     if(!isNaN(val) && parseInt(val, 10) > 0) { 
         alert("Boleto para depósito gerado com sucesso!");
-        download_boleto(val) 
+        download_boleto(val);
+        let idClient = sessionStorage.getItem('cliente_id');
+        if(idClient) {
+            let request = new XMLHttpRequest();
+            request.open('GET', `http://localhost:3000/conta/${idClient}/${val}`);
+            request.send();
+            request.onload  = function() {
+                if (this.status == 200) {
+                    let responseData = JSON.parse(request.response);
+                    console.log(responseData);
+                } 
+            };
+        }
     } else {
         alert("Valor deve ser numérico!");
     }

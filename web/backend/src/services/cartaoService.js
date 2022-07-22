@@ -69,7 +69,7 @@ class CartaoService{
     async getCartaoByTitularId2(id){
         try {
             const database = await DbConnection();
-            const [result] = await database.query('select * from Cartao where cartao_id_titular = ? and cartao_num_cartao in(select cartaocredito_num_cartao from cartaocredito)',id);
+            const [result] = await database.query('select * from Cartao where cartao_id_titular = ? and cartao_num_cartao in(select cartaocredito_num_cartao from CartaoCredito)',id);
             if(result.length > 0){
                 let date = result[0].cartao_validade;
                 result[0].cartao_validade = date.getFullYear().toString().substring(2,4) + '/' + ("0"+(date.getMonth()+1)).slice(-2);

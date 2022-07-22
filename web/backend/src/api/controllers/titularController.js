@@ -84,7 +84,7 @@ class TitularController {
     async show_titular(request, response){
         try {
             const { id } = request.params;
-            const titular = await UserService.getUserById(id);
+            const titular = await TitularService.getTitularById(id);
             return response.status(200).json(titular);
         } catch (error) {
             return response.status(400).json({
