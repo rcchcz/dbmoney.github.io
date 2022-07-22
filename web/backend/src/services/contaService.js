@@ -72,16 +72,23 @@ class ContaService {
     async removeSaldo(contaCodigo,valor){
         try {
             if(valor >= 0){
+                console.log("teste01")
                 const database = await DbConnection();
                 //await database.query('SELECT conta_saldo from conta where conta_codigo = ?',contaCodigo)
                 const [result] = await database.query('SELECT conta_saldo from conta where conta_codigo = ?',contaCodigo);
+                console.log("teste02")
                 if(result.length > 0){
+                    console.log("teste03")
                     if (result[0].conta_saldo < valor){
+                        console.log("teste04")
                         throw "Saldo Insuficiente";
                     }
+                    console.log("teste05")
                 }
+                console.log("teste06")
                 const values = [valor,contaCodigo];
                 await database.query('UPDATE Conta SET conta_saldo = conta_saldo - ? where conta_codigo = ?',values);
+                console.log("teste07")
             }
         } catch (error) {
             console.log(error)
