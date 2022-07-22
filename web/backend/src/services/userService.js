@@ -5,12 +5,12 @@ class UserService {
     async insertUser(userReceived) {
         try {
             const database = await DbConnection()
-            const passwordEncrypted = await Bcrypt.hashingPassword(userReceived.cliente_senha)
+            const passwordEncrypted = await Bcrypt.hashingPassword(userReceived.senha)
             const insertQuery = 'INSERT INTO Cliente (cliente_nome,cliente_email, cliente_telefone, ' +
                 'cliente_cpf, cliente_endereco, cliente_data_nascimento, ' +
                 'cliente_senha, cliente_id_gerente) VALUES (?,?,?,?,?,?,?,?);'
-            const values = [userReceived.cliente_nome, userReceived.cliente_email,userReceived.cliente_telefone, userReceived.cliente_cpf, 
-                userReceived.cliente_endereco, userReceived.cliente_data_nascimento, 
+            const values = [userReceived.nome, userReceived.email,userReceived.telefone, userReceived.cpf, 
+                userReceived.endereco, userReceived.data_nascimento, 
                 passwordEncrypted, 1]
             await database.query(insertQuery, values);
         } catch (error) {
