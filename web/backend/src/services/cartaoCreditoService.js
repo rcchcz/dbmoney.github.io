@@ -40,8 +40,7 @@ class CartaoCreditoService{
     async pagarFatura(num_cartao,saldoConta){
         try {
             const database = await DbConnection();
-            if(parseInt(this.getFatura(num_cartao)) > saldoConta){
-                console.log("falseeeeee")
+            if(parseInt(await this.getFatura(num_cartao)) > saldoConta){
                 return false;
             }
             return true;
