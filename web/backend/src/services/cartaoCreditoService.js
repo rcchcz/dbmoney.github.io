@@ -36,6 +36,32 @@ class CartaoCreditoService{
             return error;
         }
     }
+
+    async pagarFatura(num_cartao,saldoConta,fatura){
+        try {
+            const database = await DbConnection();
+            if(this.getFatura(num_cartao) > saldoConta){
+                return false;
+            }
+            return true;
+        } catch (error) {
+            console.log(error);
+            return error;
+        }
+    }
+
+    async getFatura(num_cartao){
+        try {
+            const database = await DbConnection();
+            const [result] = await database.query('select cartaocredito_fatura from cartaocredito where cartaocredito_num_cartao = ?',num_cartao);
+            if(result.length > 0){
+                return result[0].cartaocredito_fatura;
+            }
+        } catch (error) {
+            console.log(error)
+            return error
+        }
+    }
 }
 
 module.exports = new CartaoCreditoService();

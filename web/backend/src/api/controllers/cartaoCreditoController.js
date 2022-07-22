@@ -1,5 +1,8 @@
 const CartaoCreditoService = require('../../services/cartaoCreditoService')
 const CartaoService = require('../../services/cartaoService')
+const ContaService = require('../../services/contaService')
+const ContaTitularService = require('../../services/contaTitularService')
+const TitularService = require('../../services/titularService')
 
 class CartaoCreditoController {
     async show_cartaoCredito(request,response){
@@ -8,6 +11,48 @@ class CartaoCreditoController {
             const cartao = await CartaoService.getCartaoByTitularId(idTitular);
             const cartaoCredito = await CartaoCreditoService.getCartaoCreditoByNumCartao(cartao.cartao_num_cartao)
             return response.status(200).json(cartaoCredito)
+        } catch (error) {
+            return response.status(400).json({
+                error: error
+            })
+        }
+    }
+
+    async getFatura(request,response){
+        const id = request.params.id
+        try {
+            const cartao = await CartaoService.getCartaoByTitularId2(id);
+            console.log(cartao)
+            const cartaoCredito = await CartaoCreditoService.getCartaoCreditoByNumCartao(cartao.cartao_num_cartao)
+            const fatura = cartaoCredito.cartaocredito_fatura
+            return response.status(200).json(fatura)
+        } catch (error) {
+            return response.status(400).json({
+                error: error
+            })
+        }
+    }
+
+    async pagarFatura(request,response){
+        try {
+            const id = request.params.id
+            console.log("id -> "+id)
+            const cartao = await CartaoService.getCartaoByTitularId2(id);
+            console.log("cartao -> "+cartao)
+            const codConta = await TitularService.getCodConta(id);
+            console.log("codConta -> "+codConta)
+            const saldoConta = parseInt(await ContaService.getSaldo(codConta));
+            console.log("saldoConta -> "+saldoConta+" "+typeof saldoConta)
+            const saldoSuficiente = await CartaoCreditoService.pagarFatura(cartao.cartao_num_cartao,saldoConta);
+            if(saldoSuficiente == false){
+                throw "Saldo Insuficiente na Conta"
+            }else if(saldoSuficiente == true){
+                
+            }
+            await ContaService.removeSaldo(codConta,parseInt(saldoSuficiente));
+            return response.status(200).json({
+                msg: 'Fatura paga com sucesso'
+            })
         } catch (error) {
             return response.status(400).json({
                 error: error

@@ -85,6 +85,7 @@ class ContaService {
                 await database.query('UPDATE Conta SET conta_saldo = conta_saldo - ? where conta_codigo = ?',values);
             }
         } catch (error) {
+            console.log(error)
             return error;
         }
     }

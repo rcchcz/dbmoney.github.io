@@ -31,6 +31,7 @@ function buildPayload(elements) {
         }
     }
     let payloadString = JSON.stringify(payload);
+    console.log(payloadString);
     return payloadString;
 }
 form.addEventListener('submit', event => handleSubmitForm(event));
